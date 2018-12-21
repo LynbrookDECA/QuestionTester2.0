@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400|Open+Sans:300|Raleway:300|Lato');
+
+button {
+    background-color: white;
+    border: 1px black solid !important;
+    border-radius: 10px;
+    margin: 10px;
+    outline: none;
+    font-family: "Montserrat";
+    font-size: 16px;
+    color: black;
+    width: 175px;
+    height: 100px;
+}
+
+button .glyphicon {
+    font-size: 25px;
+}
+
+.district {
+    color: green;
+}
+
+.states {
+	color: #F3CD05;
+}
+
+.icdc {
+    color: red;
+}
+
+
+

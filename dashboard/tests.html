@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109731534-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-109731534-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lynbrook DECA - Dashboard</title>
+    <link rel="icon" href="../img/realtime-logo.jpg"></link>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/datepicker3.css" rel="stylesheet">
+    <link href="css/bootstrap-table.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/tests.css" rel="stylesheet">
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans" rel="stylesheet">
+
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+    <script>
+        var config = {
+            apiKey: "AIzaSyBdf755F2RHw5-IUsMR1rYUyCGvpdvKSOk",
+            authDomain: "lynbrook-deca.firebaseapp.com",
+            databaseURL: "https://lynbrook-deca.firebaseio.com",
+            storageBucket: "lynbrook-deca.appspot.com",
+            messagingSenderId: "105997057044"
+        };
+        firebase.initializeApp(config);
+    </script>
+
+</head>
+
+<body class = "bodyDisplay" style = "display:none">
+<nav class="navbar navbar-inverse navbar-fixed-top dash-header" role="navigation" >
+    <div class="container-fluid">
+        <div class="navbar-header">
+
+            <div id="navbarlogo">
+                <a href=""><img src="../dashboard/img/realtime-logo.png" ></a>
+            </div>
+
+            <!-- <div id="lynbrookdeca">
+                <p><a href="../index.html">Lynbrook DECA</a></p>
+            </div> -->
+
+            <button type="button"  id ="icon-bar1" style = "background-color: #1F3A93; margin-top:17px; margin-right: 5px !important" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar" style = "color:brown" ></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+
+            <!-- <span style = "padding-top: 11px; color: #3366FF; display:none; padding-right: 10px;" id= "icon-bar1"class="glyphicon glyphicon-align-justify glyphicon-l"></span>	 -->
+
+            <!-- <a class="navbar-brand" href="dashboard.html"><span>Lynbrook DECA</span> Admin</a> -->
+            <ul class = "dash-hover">
+                <!-- <button class="login-button" id="loginform">LOG IN</button>
+                <button class="signup-button" onclick="window.location='signup.html';">SIGN UP</button> -->
+
+
+                <ul class="user-menu">
+                    <li class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span><span class ="user-name"> User </span><span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu" style ="margin-top:20px">
+                            <li style ="padding-top:0"><a href="#" class="logout-button"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+
+                        </ul>
+
+                    </li>
+                </ul>
+            </ul>
+        </div>
+
+    </div><!-- /.container-fluid -->
+</nav>
+<div id="" class="nav-menu" style="padding-top: 0px; display:none">
+
+
+    <ul class="nav menu" style = "text-align:center; background-color:whitesmoke;">
+        <li><a class="logout-button" href = "#">Logout</a></li>
+
+
+
+        <li role="presentation" class="divider"></li>
+
+    </ul>
+</div>
+
+<!--/.sidebar-->
+
+    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar" style="padding-top: 40px">
+
+        <ul class="nav menu" style = "text-align:left; background-color:white">
+            <li class="active1"><a href="tests.html" style = "color: white"><span id = "test1" class="glyphicon glyphicon-briefcase"></span> Question Tester </a></li>
+            <li role="presentation" class="divider"></li>
+
+        </ul>
+    </div>
+<!--/.sidebar-->
+
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="row">
+        <ol class="breadcrumb">
+            <li><a href="tests.html"><span class="glyphicon glyphicon-home"></span></a></li>
+            <li class="active" >Tests</li>
+        </ol>
+    </div><!--/.row-->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header" style = "text-align:center; font-family: Raleway">DECA Question Tester</h1>
+            <hr>
+        </div>
+    </div><!--/.row-->
+
+
+    <div class="col-md-6" style = "width:100%">
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(1020)"><span class="glyphicon glyphicon-briefcase district"></span> <br>Principles District <br> <b>2010</b> </button>
+        <button class="btn btn-secondary" type="button" onclick="tester(1068)"><span class="glyphicon glyphicon-briefcase district"></span> <br>Principles District <br> <b>2013</b> </button>
+        <button class="btn btn-secondary" type="button" onclick="tester(1027)"><span class="glyphicon glyphicon-briefcase states"></span> <br>Principles States <br> <b>2010</b> </button>
+        <button class="btn btn-secondary" type="button" onclick="tester('2010A')"><span class="glyphicon glyphicon-briefcase states"></span> <br>Principles Misc. A <br> <b>2010</b> </button>
+        <button class="btn btn-secondary" type="button" onclick="tester('2010B')"><span class="glyphicon glyphicon-briefcase states"></span> <br>Principles Misc. B <br> <b>2010</b> </button>
+        <button class="btn btn-secondary" type="button" onclick="tester(1062)"><span class="glyphicon glyphicon-briefcase states"></span> <br>Principles States <br> <b>2012</b> </button>
+        <button class="btn btn-secondary" type="button" onclick="tester(1075)"><span class="glyphicon glyphicon-briefcase states"></span> <br>Principles States <br> <b>2013</b> </button>
+        <button class="btn btn-secondary" type="button" onclick="tester(1091)"><span class="glyphicon glyphicon-briefcase states"></span> <br>Principles States <br> <b>2014</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(2010)"><span class="glyphicon glyphicon-briefcase icdc"></span> <br>Principles ICDC <br> <b>2010</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(2011)"><span class="glyphicon glyphicon-briefcase icdc"></span> <br>Principles ICDC <br> <b>2011</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(2012)"><span class="glyphicon glyphicon-briefcase icdc"></span> <br>Principles ICDC <br> <b>2012</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(1070)"><span class="glyphicon glyphicon-plane district"></span> <br>Hospitality District <br> <b>2013</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester('2014HT')"><span class="glyphicon glyphicon-plane district"></span> <br>Hospitality District <br> <b>2014</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(1077)"><span class="glyphicon glyphicon-plane states"></span> <br>Hospitality States <br> <b>2013</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(1094)"><span class="glyphicon glyphicon-plane states"></span> <br>Hospitality States <br> <b>2014</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester('IH2012')"><span class="glyphicon glyphicon-plane icdc"></span> <br>Hospitality ICDC <br> <b>2011</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(1069)"><span class="glyphicon glyphicon-pencil district"></span> <br>Marketing District<br> <b>2013</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(1086)"><span class="glyphicon glyphicon-pencil district"></span> <br>Marketing District<br> <b>2014</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(1062)"><span class="glyphicon glyphicon-pencil states"></span> <br>Marketing States<br> <b>2012</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(1076)"><span class="glyphicon glyphicon-pencil states"></span> <br>Marketing States<br> <b>2013</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(1093)"><span class="glyphicon glyphicon-pencil states"></span> <br>Marketing States<br> <b>2014</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester('IM2012')"><span class="glyphicon glyphicon-pencil icdc"></span> <br>Marketing ICDC <br> <b>2012</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester('IM2013')"><span class="glyphicon glyphicon-pencil icdc"></span> <br>Marketing ICDC <br> <b>2013</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester('IM2014')"><span class="glyphicon glyphicon-pencil icdc"></span> <br>Marketing ICDC <br> <b>2014</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(1071)"><span class="glyphicon glyphicon-inbox district"></span> <br>Finance District <br> <b>2013</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester('2014F')"><span class="glyphicon glyphicon-inbox district"></span> <br>Finance District <br> <b>2014</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(1078)"><span class="glyphicon glyphicon-inbox states"></span> <br>Finance State <br> <b>2013</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(1095)"><span class="glyphicon glyphicon-inbox states"></span> <br>Finance State <br> <b>2014</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester('IF2013')"><span class="glyphicon glyphicon-inbox icdc"></span> <br>Finance ICDC <br> <b>2013</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester('IF2014')"><span class="glyphicon glyphicon-inbox icdc"></span> <br>Finance ICDC <br> <b>2014</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester('2014BM')"><span class="glyphicon glyphicon-send district"></span> <br> Management District <br> <b>2014</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester('2015BM')"><span class="glyphicon glyphicon-send district"></span> <br> Management District <br> <b>2015</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(1079)"><span class="glyphicon glyphicon-send states"></span> <br> Management States <br> <b>2013</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester(1096)"><span class="glyphicon glyphicon-send states"></span> <br> Management States <br> <b>2014</b> </button>
+        <button class="btn btn-secondary" type="button" aria-expanded="false" onclick="tester('IBM2014')"><span class="glyphicon glyphicon-send icdc"></span> <br> Management ICDC <br> <b>2014</b> </button>
+
+    </div><!-- /.col-->
+
+
+</div>
+
+
+<script>
+    function tester(num){
+        window.location.href = "tester.html?testID=" + num;
+
+    }
+
+</script>
+
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src = "js/dashboard-parse.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/chart.min.js"></script>
+<script src="js/chart-data.js"></script>
+<script src="js/easypiechart.js"></script>
+<script src="js/easypiechart-data.js"></script>
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/bootstrap-table.js"></script>
+<script>
+    !function ($) {
+        $(document).on("click","ul.nav li.parent > a > span.icon", function(){
+            $(this).find('em:first').toggleClass("glyphicon-minus");
+        });
+        $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+    }(window.jQuery);
+
+    $(window).on('resize', function () {
+        if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+    })
+    $(window).on('resize', function () {
+        if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+    })
+</script>
+</body>
+
+</html>
